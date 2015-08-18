@@ -1,0 +1,1 @@
+c:\users\em111o\documents\visual studio 2012\Projects\RockPaperScissors\RockPaperScissors\bin\Debug\RockPaperScissors.exe.config
