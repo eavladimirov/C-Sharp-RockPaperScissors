@@ -17,12 +17,20 @@ namespace RockPaperScissors
 
         public Hand getUserHand()
         {
-            while (!validateSelection)
+            while (!validateSelection())
             {
                 Console.Clear();
                 Console.WriteLine("Invalid input");
                 Screen();
                 PlayerSelection = Convert.ToChar(Console.ReadLine());
+
+                switch (Char.ToUpper(PlayerSelection))
+                {
+                    case 'R': PlayerHand = Hand.Rock; break;
+                    case 'P': PlayerHand = Hand.Paper; break;
+                    case 'S': PlayerHand = Hand.Scissors; break;
+                    default: throw new Exception("Unexpected Error");
+                }
             }
         }
 
@@ -34,7 +42,7 @@ namespace RockPaperScissors
             {
                 return false;
             }
-
+            
             return true;
         }
 
