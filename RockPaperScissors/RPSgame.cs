@@ -82,9 +82,26 @@ namespace RockPaperScissors
                 Console.WriteLine("Another game (y/n)?");
                 response = Convert.ToChar(Console.ReadLine());
 
+                while (valdiateResponse(response) == false)
+                {
+                    Console.WriteLine("Invalid input. Please re-enter:");
+                    response = Convert.ToChar(Console.ReadLine());
+                }
 
+                if (Char.ToUpper(response) == 'N')
+                    gameOver = true;
+
+                Console.Clear();
             }
              
+        }
+
+        public bool valdiateResponse(char response)
+        {
+            if (Char.ToUpper(response) != 'Y' && Char.ToUpper(response) != 'N')
+                return false;
+
+            return true;
         }
 
         public Outcome DeterminateWinner()
