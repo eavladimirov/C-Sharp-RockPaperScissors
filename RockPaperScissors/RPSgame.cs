@@ -15,27 +15,6 @@ namespace RockPaperScissors
         public Hand PlayerHand { get; set; }
         public char PlayerSelection { get; set;}
 
-        public Hand getUserHand()
-        {
-            while (!validateSelection())
-            {
-                Console.Clear();
-                Console.WriteLine("Invalid input");
-                Screen();
-                PlayerSelection = Convert.ToChar(Console.ReadLine());
-
-                switch (Char.ToUpper(PlayerSelection))
-                {
-                    case 'R': PlayerHand = Hand.Rock; break;
-                    case 'P': PlayerHand = Hand.Papper; break;
-                    case 'S': PlayerHand = Hand.Scissors; break;
-                    default: throw new Exception("Unexpected Error");
-                }
-            }
-
-            return PlayerHand;
-        }
-
         private bool validateSelection()
         {
             char value = Char.ToUpper(PlayerSelection);
@@ -92,8 +71,31 @@ namespace RockPaperScissors
                     gameOver = true;
 
                 Console.Clear();
+
             }
              
+        }
+
+        public Hand getUserHand()
+        {
+            while (!validateSelection())
+            {
+                Console.Clear();
+                Console.WriteLine("Invalid input");
+                Screen();
+                PlayerSelection = Convert.ToChar(Console.ReadLine());
+
+            }
+
+            switch (Char.ToUpper(PlayerSelection))
+            {
+                case 'R': PlayerHand = Hand.Rock; break;
+                case 'P': PlayerHand = Hand.Papper; break;
+                case 'S': PlayerHand = Hand.Scissors; break;
+                default: throw new Exception("Unexpected Error");
+            }
+
+            return PlayerHand;
         }
 
         public bool valdiateResponse(char response)

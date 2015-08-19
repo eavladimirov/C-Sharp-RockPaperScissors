@@ -29,7 +29,7 @@ namespace RockPaperScissors
             }
 
             Console.WriteLine("Good bye.");
-            Console.ReadLine();  //Pouse the screen
+           // Console.ReadLine();  //Pouse the screen
         }
     }
 }
